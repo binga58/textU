@@ -9,17 +9,22 @@
 /* Begin PBXBuildFile section */
 		1C5C3C551EBA1364DAA6CA12 /* Pods_textU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D464A9821C3529267FF254E1 /* Pods_textU.framework */; };
 		42273D751D93FD6200FEEB21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42273D741D93FD6200FEEB21 /* GoogleService-Info.plist */; };
-		42273F291D940B1400FEEB21 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42273F281D940B1400FEEB21 /* FBSDKCoreKit.framework */; };
-		42273F2B1D940B2100FEEB21 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42273F2A1D940B2100FEEB21 /* FBSDKLoginKit.framework */; };
-		42273F2D1D940B2D00FEEB21 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42273F2C1D940B2D00FEEB21 /* FBSDKShareKit.framework */; };
+		422E79CD1D9D4DED00F85C2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E79CC1D9D4DED00F85C2E /* User.swift */; };
 		42432F2D1D928A9C007DDF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42432F2C1D928A9C007DDF75 /* AppDelegate.swift */; };
 		42432F351D928A9C007DDF75 /* textU.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42432F331D928A9C007DDF75 /* textU.xcdatamodeld */; };
 		42432F371D928A9C007DDF75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42432F361D928A9C007DDF75 /* Assets.xcassets */; };
 		42432F3A1D928A9C007DDF75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42432F381D928A9C007DDF75 /* LaunchScreen.storyboard */; };
 		42432F451D928A9C007DDF75 /* textUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42432F441D928A9C007DDF75 /* textUTests.swift */; };
 		42432F501D928A9C007DDF75 /* textUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42432F4F1D928A9C007DDF75 /* textUUITests.swift */; };
-		42432F5F1D928EB3007DDF75 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42432F5D1D928EB3007DDF75 /* LoginRegisterViewController.swift */; };
-		42432F601D928EB3007DDF75 /* LoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42432F5E1D928EB3007DDF75 /* LoginRegisterViewController.xib */; };
+		427B5F491D950B320088398B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427B5F471D950B320088398B /* FBSDKCoreKit.framework */; };
+		427B5F4A1D950B320088398B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427B5F481D950B320088398B /* FBSDKLoginKit.framework */; };
+		427B5F4C1D950E610088398B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427B5F4B1D950E610088398B /* Bolts.framework */; };
+		4291CEAF1D9B8FE20010121B /* CellMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291CEA81D9B8FE20010121B /* CellMessageTableViewCell.swift */; };
+		4291CEB01D9B8FE20010121B /* CellMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4291CEA91D9B8FE20010121B /* CellMessageTableViewCell.xib */; };
+		4291CEB11D9B8FE20010121B /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291CEAA1D9B8FE20010121B /* LandingPageViewController.swift */; };
+		4291CEB21D9B8FE20010121B /* LandingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4291CEAB1D9B8FE20010121B /* LandingPageViewController.xib */; };
+		4291CEB31D9B8FE20010121B /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291CEAD1D9B8FE20010121B /* LoginRegisterViewController.swift */; };
+		4291CEB41D9B8FE20010121B /* LoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4291CEAE1D9B8FE20010121B /* LoginRegisterViewController.xib */; };
 		5183C5CD11C157FCF2D97F41 /* Pods_textUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC058268587D7C49CC4E4BB /* Pods_textUTests.framework */; };
 		569F81A248FD9EB23EA9C449 /* Pods_textUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCFCE0473C3030A56BF958B /* Pods_textUUITests.framework */; };
 /* End PBXBuildFile section */
@@ -46,9 +51,7 @@
 		10D23C683479C77579789F2D /* Pods-textUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-textUUITests/Pods-textUUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		42273D6C1D93DFF900FEEB21 /* textU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "textU-Bridging-Header.h"; sourceTree = "<group>"; };
 		42273D741D93FD6200FEEB21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		42273F281D940B1400FEEB21 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		42273F2A1D940B2100FEEB21 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		42273F2C1D940B2D00FEEB21 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		422E79CC1D9D4DED00F85C2E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42432F291D928A9C007DDF75 /* textU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42432F2C1D928A9C007DDF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42432F341D928A9C007DDF75 /* textU.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = textU.xcdatamodel; sourceTree = "<group>"; };
@@ -61,8 +64,15 @@
 		42432F4B1D928A9C007DDF75 /* textUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = textUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42432F4F1D928A9C007DDF75 /* textUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textUUITests.swift; sourceTree = "<group>"; };
 		42432F511D928A9C007DDF75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42432F5D1D928EB3007DDF75 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
-		42432F5E1D928EB3007DDF75 /* LoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginRegisterViewController.xib; sourceTree = "<group>"; };
+		427B5F471D950B320088398B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		427B5F481D950B320088398B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		427B5F4B1D950E610088398B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4291CEA81D9B8FE20010121B /* CellMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMessageTableViewCell.swift; sourceTree = "<group>"; };
+		4291CEA91D9B8FE20010121B /* CellMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellMessageTableViewCell.xib; sourceTree = "<group>"; };
+		4291CEAA1D9B8FE20010121B /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		4291CEAB1D9B8FE20010121B /* LandingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingPageViewController.xib; sourceTree = "<group>"; };
+		4291CEAD1D9B8FE20010121B /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
+		4291CEAE1D9B8FE20010121B /* LoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginRegisterViewController.xib; sourceTree = "<group>"; };
 		4F144C07073A768916385CFA /* Pods-textU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-textU/Pods-textU.debug.xcconfig"; sourceTree = "<group>"; };
 		5F218BDF09755397DFF51E9A /* Pods-textUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textUTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-textUTests/Pods-textUTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BCFCE0473C3030A56BF958B /* Pods_textUUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_textUUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,10 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42273F2D1D940B2D00FEEB21 /* FBSDKShareKit.framework in Frameworks */,
 				1C5C3C551EBA1364DAA6CA12 /* Pods_textU.framework in Frameworks */,
-				42273F291D940B1400FEEB21 /* FBSDKCoreKit.framework in Frameworks */,
-				42273F2B1D940B2100FEEB21 /* FBSDKLoginKit.framework in Frameworks */,
+				427B5F491D950B320088398B /* FBSDKCoreKit.framework in Frameworks */,
+				427B5F4A1D950B320088398B /* FBSDKLoginKit.framework in Frameworks */,
+				427B5F4C1D950E610088398B /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		422E79CB1D9D4DED00F85C2E /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				422E79CC1D9D4DED00F85C2E /* User.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		42432F201D928A9C007DDF75 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +146,10 @@
 		42432F2B1D928A9C007DDF75 /* textU */ = {
 			isa = PBXGroup;
 			children = (
+				422E79CB1D9D4DED00F85C2E /* Modals */,
+				4291CEA61D9B8FE20010121B /* LandingPage */,
+				4291CEAC1D9B8FE20010121B /* LoginRegister */,
 				42432F2C1D928A9C007DDF75 /* AppDelegate.swift */,
-				42432F5D1D928EB3007DDF75 /* LoginRegisterViewController.swift */,
-				42432F5E1D928EB3007DDF75 /* LoginRegisterViewController.xib */,
 				42432F361D928A9C007DDF75 /* Assets.xcassets */,
 				42432F381D928A9C007DDF75 /* LaunchScreen.storyboard */,
 				42432F3B1D928A9C007DDF75 /* Info.plist */,
@@ -159,6 +178,34 @@
 			path = textUUITests;
 			sourceTree = "<group>";
 		};
+		4291CEA61D9B8FE20010121B /* LandingPage */ = {
+			isa = PBXGroup;
+			children = (
+				4291CEAA1D9B8FE20010121B /* LandingPageViewController.swift */,
+				4291CEAB1D9B8FE20010121B /* LandingPageViewController.xib */,
+				4291CEA71D9B8FE20010121B /* Cell */,
+			);
+			path = LandingPage;
+			sourceTree = "<group>";
+		};
+		4291CEA71D9B8FE20010121B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4291CEA81D9B8FE20010121B /* CellMessageTableViewCell.swift */,
+				4291CEA91D9B8FE20010121B /* CellMessageTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4291CEAC1D9B8FE20010121B /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				4291CEAD1D9B8FE20010121B /* LoginRegisterViewController.swift */,
+				4291CEAE1D9B8FE20010121B /* LoginRegisterViewController.xib */,
+			);
+			path = LoginRegister;
+			sourceTree = "<group>";
+		};
 		43C7712493B283A8BE70E58B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,9 +222,9 @@
 		ED5633EAF3632ED9548BF86A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42273F2C1D940B2D00FEEB21 /* FBSDKShareKit.framework */,
-				42273F2A1D940B2100FEEB21 /* FBSDKLoginKit.framework */,
-				42273F281D940B1400FEEB21 /* FBSDKCoreKit.framework */,
+				427B5F4B1D950E610088398B /* Bolts.framework */,
+				427B5F471D950B320088398B /* FBSDKCoreKit.framework */,
+				427B5F481D950B320088398B /* FBSDKLoginKit.framework */,
 				D464A9821C3529267FF254E1 /* Pods_textU.framework */,
 				EAC058268587D7C49CC4E4BB /* Pods_textUTests.framework */,
 				6BCFCE0473C3030A56BF958B /* Pods_textUUITests.framework */,
@@ -298,8 +345,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				42432F3A1D928A9C007DDF75 /* LaunchScreen.storyboard in Resources */,
+				4291CEB21D9B8FE20010121B /* LandingPageViewController.xib in Resources */,
+				4291CEB01D9B8FE20010121B /* CellMessageTableViewCell.xib in Resources */,
+				4291CEB41D9B8FE20010121B /* LoginRegisterViewController.xib in Resources */,
 				42273D751D93FD6200FEEB21 /* GoogleService-Info.plist in Resources */,
-				42432F601D928EB3007DDF75 /* LoginRegisterViewController.xib in Resources */,
 				42432F371D928A9C007DDF75 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,9 +497,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42432F5F1D928EB3007DDF75 /* LoginRegisterViewController.swift in Sources */,
+				4291CEB31D9B8FE20010121B /* LoginRegisterViewController.swift in Sources */,
 				42432F2D1D928A9C007DDF75 /* AppDelegate.swift in Sources */,
+				422E79CD1D9D4DED00F85C2E /* User.swift in Sources */,
 				42432F351D928A9C007DDF75 /* textU.xcdatamodeld in Sources */,
+				4291CEAF1D9B8FE20010121B /* CellMessageTableViewCell.swift in Sources */,
+				4291CEB11D9B8FE20010121B /* LandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +644,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 					"$(PROJECT_DIR)",
-					/Users/emp270/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = textU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,7 +664,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 					"$(PROJECT_DIR)",
-					/Users/emp270/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = textU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

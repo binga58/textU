@@ -1,0 +1,6 @@
+framework module Pods_textUUITests {
+  umbrella header "Pods-textUUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

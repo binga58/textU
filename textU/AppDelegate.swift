@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
-import FBSDKLoginKit
+//import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -22,68 +22,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         FIRApp.configure()
         
-//        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-//        GIDSignIn.sharedInstance().delegate = self
-        
-//        [[FBSDKApplicationDelegate sharedInstance] application:application
-//            didFinishLaunchingWithOptions:launchOptions];
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = UINavigationController(rootViewController: LoginRegisterViewController())
+        window?.rootViewController = UINavigationController(rootViewController: LandingPageViewController())
+//        window?.rootViewController = UINavigationController()
         
         
         return true
     }
     
     
-//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError?) {
-//        if error != nil {
-//            //            self.showMessagePrompt(error.localizedDescription)
-//            return
-//        }
-//        
-//        let authentication = user.authentication
-//        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
-//                                                                     accessToken: authentication.accessToken)
-//        // ...
-//        
-////        FIRAuth.auth()
-//        
-//        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-//            // ...
-//            if error != nil{
-//                print("shit")
-//            }
-//            print(user?.displayName)
-//            print(user?.email)
-//            
-//        }
-//    }
-    
-//    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-//                withError error: NSError!) {
-//        // Perform any operations when the user disconnects from app here.
-//        // ...
-//    }
-    
-    
     func application(application: UIApplication,
                      openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handleURL(url,
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                                     openURL: url,
+                                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String,
+                                                                     annotation: options [UIApplicationOpenURLOptionsAnnotationKey]) ||  GIDSignIn.sharedInstance().handleURL(url,
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
         
     }
 
-    func application(application: UIApplication, open url: NSURL, sourceApplication: String, annotation: AnyObject) -> Bool {
-        var handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-        // Add any custom logic here.
-        return handled
-    }
+//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+////        let handle = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+////        return handle
+//        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication:UIApplicationOpenURLOptionsSourceApplicationKey as! String, annotation: nil)  ||
+//            GPPURLHandler.handleURL(url, sourceApplication: uiap as! String, annotation: nil)
+//    }
+    
+//    func application(application: UIApplication, open url: NSURL, sourceApplication: String, annotation: AnyObject) -> Bool {
+//        var handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+//        // Add any custom logic here.
+//        return handled
+//    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
