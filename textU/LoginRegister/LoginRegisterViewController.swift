@@ -14,10 +14,13 @@ import FirebaseAuth
 
 class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate,FBSDKLoginButtonDelegate,UITextFieldDelegate {
 
+//    @IBOutlet weak var activityIndicatorView: UIVisualEffectView!
+    @IBOutlet weak var insideViewOfBlurView: UIView!
     @IBOutlet weak var nameTFHeight: NSLayoutConstraint!
     @IBOutlet weak var dataViewHeight: NSLayoutConstraint!
     @IBOutlet weak var emailTFHeight: NSLayoutConstraint!
     @IBOutlet weak var passwordTFHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var activityIndicatorView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var errorMsgTV: UITextView!
@@ -49,21 +52,16 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
         self.loginBTN.delegate = self
+        self.loginBTN.readPermissions = ["public_profile" ,"email", "user_friends"]
         self.loginRegisterBTN.setTitle("Register", forState: .Normal)
         errorMsgTV.hidden = true
+        self.hideActivityIndicator()
+        self.insideViewOfBlurView.layer.cornerRadius = 5
         if (FBSDKAccessToken.currentAccessToken() != nil){
             gettingCredentialFromFacebook()
         }
-//        self.activityIndicator.startAnimating()
         
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        self.hideActivityIndicator()
-        
-    }
-    
     
     
     // #MARK: - - Facebook protocols and Methods
@@ -97,7 +95,7 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
             }
             
             self.userExistsInFirebase(user!)
-            self.toLandingPage(user!)
+//            self.toLandingPage(user!)
             
             
             
@@ -130,7 +128,7 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
             
             
             self.userExistsInFirebase(user!)
-            self.toLandingPage(user!)
+//            self.toLandingPage(user!)
             
             
         }
@@ -148,6 +146,10 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
         userRef.observeSingleEventOfType(.Value) { (snapshot:FIRDataSnapshot) in
             if !snapshot.exists(){
                 self.storeUserInDatabase(user.displayName!, user: user)
+                self.toSetUserDetailsPage()
+            }
+            else{
+                self.toLandingPage()
             }
         }
        
@@ -168,7 +170,7 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
     
     
     // #MARK:- - To landing Page
-    func toLandingPage(user:FIRUser){
+    func toLandingPage(){
         
         
         let landingPageViewController  = LandingPageViewController()
@@ -176,6 +178,13 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
         self.presentViewController(navigation, animated: true, completion: {
         })
         
+    }
+    
+    
+    // #MARK:- - To Set User Details
+    func toSetUserDetailsPage() -> () {
+        let setUserDetailsViewController = SetUserDetailsViewController()
+        presentViewController(setUserDetailsViewController, animated: true, completion: nil)
     }
     
     
@@ -228,6 +237,7 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
         
     }
     
+    
     // #MARK:- - Helper ViewDidLoad
     func startUp() -> () {
         
@@ -265,6 +275,12 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
     func login() -> () {
                 displayActivityIndicator()
         guard let email = self.emailTF.text, let password = passwordTF.text where  isValidEmail(email) && isValidPassword(password) else{
+            
+            if !self.activityIndicatorView.hidden{
+                self.hideActivityIndicator()
+            }
+            self.errorMsgTV.text = "Invalid Credentials"
+            self.errorMsgTV.hidden = false
             return
         }
         
@@ -277,7 +293,7 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
                 self.errorMsgTV.hidden = false
             }
             
-            self.toLandingPage(user!)
+            self.toLandingPage()
             
             
         })
@@ -305,7 +321,8 @@ class LoginRegisterViewController: UIViewController,GIDSignInUIDelegate,GIDSignI
             }
             user?.sendEmailVerificationWithCompletion(nil)
             self.storeUserInDatabase(name, user: user!)
-            self.toLandingPage(user!)
+            self.toSetUserDetailsPage()
+//            self.toLandingPage(user!)
             
         })
         

@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = UINavigationController(rootViewController: LandingPageViewController())
-//        window?.rootViewController = UINavigationController()
+//        window?.rootViewController = UINavigationController(rootViewController: LandingPageViewController())
+        window?.rootViewController = MainNavigationController()
         
         
         return true

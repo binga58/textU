@@ -30,21 +30,11 @@ class LandingPageViewController: UIViewController {
         btnName.setImage(UIImage(named: "ic_exit_to_app_white"), forState: .Normal)
         btnName.frame = CGRectMake(0, 0, 30, 30)
         btnName.tintColor = UIColor.blackColor()
-        btnName.addTarget(self, action: #selector(LandingPageViewController.logoutPressed), forControlEvents: .TouchUpInside)
+        btnName.addTarget(self, action: #selector(logoutPressed), forControlEvents: .TouchUpInside)
         let rightBarButton = UIBarButtonItem()
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
-        self.checkIfUserIsLoggedIn()
         
-        
-        
-    }
-    
-    func checkIfUserIsLoggedIn() -> () {
-        if user?.uid == nil{
-            let loginRegisterViewController = LoginRegisterViewController()
-            self.presentViewController(loginRegisterViewController, animated: true, completion: nil)
-        }
         
         
     }
@@ -54,16 +44,25 @@ class LandingPageViewController: UIViewController {
         
         do{
             try FIRAuth.auth()?.signOut()
+//            if (GIDSignIn.sharedInstance().currentUser != nil){
             GIDSignIn.sharedInstance().signOut()
-            GIDSignIn.sharedInstance().disconnect()
-            FBSDKLoginManager().logOut()
-            FBSDKAccessToken.setCurrentAccessToken(nil)
-            let loginRegisterViewController = LoginRegisterViewController()
-            self.presentViewController(loginRegisterViewController, animated: true, completion: nil)
+//                GIDSignIn.sharedInstance().disconnect()
+//            }
+            if FBSDKAccessToken.currentAccessToken() != nil{
+                FBSDKLoginManager().logOut()
+                FBSDKAccessToken.setCurrentAccessToken(nil)
+            }
+            
+            showLoginRegisterViewController()
         }catch{
             print("Error")
         }
      
+    }
+    
+    func showLoginRegisterViewController() -> () {
+        let loginRegisterViewController = LoginRegisterViewController()
+        self.presentViewController(loginRegisterViewController, animated: true, completion: nil)
     }
 
 

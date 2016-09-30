@@ -12,6 +12,7 @@ target 'textU' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'Firebase/Database'
+  pod 'IQKeyboardManager'
 
   target 'textUTests' do
     inherit! :search_paths
